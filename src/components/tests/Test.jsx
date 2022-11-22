@@ -1,3 +1,6 @@
+// React Hooks
+import { useRef } from "react";
+
 // Database
 import greydivedb from "../../database/greydivedb.json";
 
@@ -16,6 +19,8 @@ import Card from "react-bootstrap/Card";
 export const Test = () => {
   const params = useParams();
 
+  const headerRef = useRef()
+
   const findTest = greydivedb.find((oneTest) => {
     return oneTest.cliente === params.id;
   });
@@ -25,10 +30,16 @@ export const Test = () => {
     return string[0].toUpperCase() + string.slice(1);
   };
 
+  // Ir hacia arriba
+  const upScrollHandler = () => {
+    headerRef.current.scrollIntoView({behavior: "smooth"});
+  }
+
   console.log("Cliente", findTest);
 
   return (
-    <>
+    <div className={styles.boxContain} ref={headerRef}>
+      <div className={styles.upArrow} onClick={upScrollHandler}><i className="fa-solid fa-arrow-up"></i></div>
       <h1 className="text-center fw-bold my-3">TEST</h1>
       <h2>
         <b>Cliente:</b> {toUpperCaseString(findTest.cliente)}
@@ -80,6 +91,6 @@ export const Test = () => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
