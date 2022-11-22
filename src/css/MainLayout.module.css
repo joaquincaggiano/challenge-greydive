@@ -13,6 +13,7 @@ body{
     background-color: #30306c;
     padding: 8px;
     text-align: center;
+    min-height: 10vh;
 }
 
 .headerClass h2 {
@@ -33,19 +34,21 @@ body{
     background-color: black;
     color: white;
     padding: 8px;
-    height: 80vh;
+    min-height: 80vh;
 }
 
 .footerClass {
+    padding: 20px;
     background-color: black;
     border-top: 3px solid #30306c;
-    height: 10vh;
+    min-height: 10vh;
 }
 
 .footerClass h3 {
     color: white;
     font-size: 24px;
     text-align: center;
+    margin-top: 10px;
 }
 
 @media(min-width: 768px) {
@@ -53,7 +56,16 @@ body{
         display: none;
     }
 
+    .headerClass h2 {
+        margin-top: 10px;
+    }
+
+    .footerClass {
+        min-height: 15vh;
+    }
+
     .footerClass h3 {
         font-size: 30px;
+        margin-top: 25px;
     }
 }
