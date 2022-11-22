@@ -19,7 +19,7 @@ import Card from "react-bootstrap/Card";
 export const Test = () => {
   const params = useParams();
 
-  const headerRef = useRef()
+  const headerRef = useRef();
 
   const findTest = greydivedb.find((oneTest) => {
     return oneTest.cliente === params.id;
@@ -32,26 +32,31 @@ export const Test = () => {
 
   // Ir hacia arriba
   const upScrollHandler = () => {
-    headerRef.current.scrollIntoView({behavior: "smooth"});
-  }
+    headerRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   console.log("Cliente", findTest);
 
   return (
     <div className={styles.boxContain} ref={headerRef}>
-      <div className={styles.upArrow} onClick={upScrollHandler}><i className="fa-solid fa-arrow-up"></i></div>
+      <div className={styles.upArrow} onClick={upScrollHandler}>
+        <i className="fa-solid fa-arrow-up"></i>
+      </div>
+
       <h1 className="text-center fw-bold my-3">TEST</h1>
       <h2>
         <b>Cliente:</b> {toUpperCaseString(findTest.cliente)}
       </h2>
 
       <ReactPlayer
-        url={findTest.linkVideo}
+        url={findTest?.linkVideo}
         controls
         loop
         width="100%"
         height="100%"
       />
+
+      {/* <video src={findTest.linkVideo} loop /> */}
 
       <h3 className={styles.timeClass}>
         Tiempo del Test:{" "}
@@ -80,9 +85,7 @@ export const Test = () => {
                     <Card.Title>{oneQuestion.texto}</Card.Title>
                     <Card.Text className={`${styles.timeClass} mt-4`}>
                       Duración de la tarea:{" "}
-                      <p className="d-inline text-white">
-                        {oneQuestion.tiempo}
-                      </p>
+                      <b className="text-white">{oneQuestion.tiempo}</b>
                     </Card.Text>
                   </Card.Body>
                 </Card>

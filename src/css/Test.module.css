@@ -38,16 +38,17 @@
 }
 
 .cardStyle {
-    background-color: black;
     border: 1px solid #30306c;
     min-height: 200px;
-    box-shadow: 5px 5px 5px 0px rgba(48,48,108,0.75);
     margin-bottom: 30px;
+    border: 1px solid #30306c;
+    background-color: black;
+    box-shadow: 5px 5px 5px 0px rgba(48,48,108,0.75);
 }
 
 .cardStyle:hover {
     border: 3px solid #30306c;
-    box-shadow: 7px 7px 5px 0px rgba(48,48,108,0.75);
+    box-shadow: 7px 7px 7px 0px rgba(48,48,108,0.75);
 }
 
 @media(min-width: 768px) {
