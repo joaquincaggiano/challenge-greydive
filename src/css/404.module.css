@@ -1,0 +1,27 @@
+.notFound {
+    position: absolute;
+    top: 45%;
+    left: 22%;
+    font-size: 30px;
+}
+
+@media(min-width: 768px) {
+    .notFound {
+        left: 28%;
+        font-size: 50px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .notFound {
+        left: 35%;
+        font-size: 50px;
+    }
+}
+
+@media(min-width: 1920px) {
+    .notFound {
+        left: 40%;
+        font-size: 50px;
+    }
+}

@@ -7,6 +7,9 @@ import greydivedb from "../../database/greydivedb.json";
 // Router Dom
 import { useParams } from "react-router-dom";
 
+// Components
+import { NotFound } from "../404/NotFound";
+
 // Css
 import styles from "../../css/Test.module.css";
 
@@ -43,11 +46,14 @@ export const Test = () => {
     headerRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  console.log("Cliente", oneTest);
+  const transcripcionText = oneTest?.transcripcion.replaceAll("<br>", ".\n");
+
+  // console.log("Cliente", oneTest);
 
   return (
     <>
-      {!isLoading && (
+      {oneTest?.cliente === undefined && <NotFound />}
+      {!isLoading && oneTest?.cliente !== undefined && (
         <div className={styles.boxContain} ref={headerRef}>
           <div className={styles.upArrow} onClick={upScrollHandler}>
             <i className="fa-solid fa-arrow-up"></i>
@@ -75,7 +81,7 @@ export const Test = () => {
             Transcripción
           </h2>
           <div className={styles.transcripcionClass}>
-            <p className="fs-4">{toUpperCaseString(oneTest.transcripcion)}</p>
+            <p className="fs-4">{toUpperCaseString(transcripcionText)}</p>
           </div>
 
           <h2 className="mt-5 text-center fw-bold fs-1">Tareas</h2>
