@@ -2,8 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 
 // Components
-import { TestList } from "../components/tests/TestList";
-import { Test } from "../components/tests/Test";
+import { TestList } from "../components/ui/TestList";
+import { Test } from "../components/ui/Test";
 
 function Roots() {
   return (
